@@ -1,8 +1,8 @@
-# SmartLab Empower API
+# Empower API
 
-SmartLab Empower API is an ASP.NET Core 8 web API for querying Empower 3 data stored in Oracle. It uses a small SQLite database to track the Empower schemas that contain data.
+Empower API is an ASP.NET Core 8 web API for querying Empower 3 data stored in Oracle. It uses a small SQLite database to track the Empower schemas that contain data.
 
-![SmartLab Empower API](assets/empower_api.jpg)
+![Empower API](assets/empower_api.jpg)
 
 ## Requirements
 
@@ -30,7 +30,7 @@ The application writes logs to `empower_access*.log`. Log files and local config
 From the repository root:
 
 ```bash
-dotnet run --project src/smart-lab-empower-api.csproj
+dotnet run --project src/empower-api.csproj
 ```
 
 The default HTTP launch profile serves the application at:
