@@ -1,0 +1,31 @@
+http:
+  routers:
+    empower-api:
+      entrypoints:
+        - web
+        - web-secure
+      tls: true
+      rule: "PathPrefix(`/api/EmpowerData/`)"
+      service: "empower-api"
+    empower-documentation:
+      entrypoints:
+        - web
+        - web-secure
+      tls: true
+      rule: "PathPrefix(`/empower-api-documentation/`)"
+      middlewares:
+        - "empower-api-documentation"
+      service: "empower-api"
+
+  middlewares:
+    empower-api-documentation:
+      replacePathRegex:
+        regex: "^/empower-api-documentation/"
+        replacement: "/swagger/"
+
+  services:
+    empower-api:
+      loadBalancer:
+        servers:
+          - url: "http://empower-api:5000"
+

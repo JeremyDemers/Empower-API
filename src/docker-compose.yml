@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  empower-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: empower-api
+    container_name: empower-api
+    restart: unless-stopped
+    networks:
+      - smart-lab
+    volumes:
+      - ./database:/data
+
+networks:
+  smart-lab:
+    external: true
+
+volumes:
+  sqlite_data:
+    external: false
